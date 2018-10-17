@@ -13,3 +13,12 @@ Run
 ```
 ./gradlew build
 ```
+
+## Using NetBeans IDE
+This code may be edited using NetBeans IDE.  For best results a gradle plugin should be used.  
+
+Such a plugin is available at http://plugins.netbeans.org/plugin/44510/gradle-support
+It can added to netbeans directly from the Tools->plugins menu.
+After loading the the project, there will be a tree item of Subprojects.  To view
+the code within those subprojects you must open them individually which can be
+done from the context sensitive right-click menu.
