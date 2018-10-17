@@ -13,6 +13,8 @@ plugins {
   id "org.ajoberstar.git-publish" version "1.0.1" // publish gh-pages branch
 }
 
+pmd.ignoreFailures=true
+
 sourceCompatibility = 1.7
 targetCompatibility = 1.7
 
@@ -181,7 +183,8 @@ task sendCoverageToCodacy(type: JavaExec, dependsOn: jacocoTestReport) {
 subprojects {
     apply plugin: "java"
     apply plugin: "jacoco"
-    apply plugin: "pmd"   
+    apply plugin: "pmd" 
+    pmd.ignoreFailures=true
 }
 
 project (':cwblib') {
