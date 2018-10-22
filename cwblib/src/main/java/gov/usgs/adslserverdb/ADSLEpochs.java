@@ -317,14 +317,14 @@ public final class ADSLEpochs extends Thread {
                 System.exit(1);
               }
             }
-
-            ok = true;
-            lastRead = System.currentTimeMillis();
-            keys = new String[epochs.size()];
-            keys = epochs.keySet().toArray(keys);
-            //}
-            prta("IRE: processing complete nrows=" + nrows);
           }
+          ok = true;
+          lastRead = System.currentTimeMillis();
+          keys = new String[epochs.size()];
+          keys = epochs.keySet().toArray(keys);
+          //}
+          prta("IRE: processing complete nrows=" + nrows);
+
         } catch (RuntimeException e) {
           prta("ADSLEpoch reload Runtime error =" + e);
           if (par == null) {

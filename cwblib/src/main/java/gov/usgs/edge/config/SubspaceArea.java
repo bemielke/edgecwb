@@ -524,7 +524,7 @@ public final class SubspaceArea {    //implements Comparator
       Collections.sort(ms2);
       if (!ms2.isEmpty()) {
         if(ms2.get(0).getTimeInMillis() <= arrival - 120000 && 
-          ms2.get(ms2.size()-1).getNextExpectedTimeInMillis() >= arrival + (duration  + 240.)*1000) { // complete?
+          ms2.get(ms2.size()-1).getNextExpectedTimeInMillis() >= arrival + (duration  + 120.)*1000) { // complete?
           Util.prta("CFD: * SSDCWB is complete mss.size()="+ms2.size()+" "+line);
           Util.prt("CFD: ms(0)='"+ms2.get(0)+"\nCFD:ms(l)="+ms2.get(ms2.size()-1));
           EdgeQueryClient.freeQueryBlocks(mss, "Freems2", null);
@@ -533,14 +533,15 @@ public final class SubspaceArea {    //implements Comparator
         Util.prta("CFD: * looks like data on SSDCWBIP is not complete "+
                 Util.ascdatetime2(ms2.get(0).getTimeInMillis()) + "-"+
                 Util.ascdatetime2(ms2.get(ms2.size()-1).getNextExpectedTimeInMillis())+
-                " does not cover "+Util.ascdatetime(arrival - 120000)+"-"+ Util.ascdatetime2(arrival + (long)((duration + 30.)*1000.)));
+                " does not cover "+Util.ascdatetime(arrival - 120000)+"-"+ 
+                Util.ascdatetime2(arrival + (long)((duration + 240.)*1000.)));
       }
     }
     try {
       // Try to get the data from the source CWB, if we get it, store it in the SSD CWB for 2 minutes before to two minute + an extra duration after
       // Reference needs two minutes before an two minutes after so make this a bit longer.
       line = "-h " + config.getCWBIP() + " -p " + config.getCWBPort() + " -t null -s " + nscl.replaceAll(" ", "-")
-              + " -b '" + Util.ascdatetime2(arrival - 120000) + "' -d " + (duration * 3  + 240.) + " -perf -uf";
+              + " -b '" + Util.ascdatetime2(arrival - 120000) + "' -d " + (120. + duration + 250.) + " -perf -uf";
       ArrayList<ArrayList<MiniSeed>> mss2 = EdgeQueryClient.query(line);
       if(ms2 != null) {
         if (ms2.isEmpty()) {

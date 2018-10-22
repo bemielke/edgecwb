@@ -825,7 +825,8 @@ public class EdgeQueryClient {
         } else {
           beg = Util.stringToDate2(begin);
           if (beg.before(Util.stringToDate2("1970/12/31/ 23:59"))) {
-            Util.prt("the -b field date did not parse correctly. @line" + nline);
+            Util.prt("the -b field date did not parse correctly. "+Util.ascdatetime2(beg.getTime()) 
+                    + "is before 1970/12/31 23:59 @line" + nline );
             return null;
           }
         }
