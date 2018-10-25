@@ -1,0 +1,947 @@
+/*
+ * This software is in the public domain because it contains materials 
+ * that originally came from the United States Geological Survey, 
+ * an agency of the United States Department of Interior. For more 
+ * information, see the official USGS copyright policy at 
+ * http://www.usgs.gov/visual-id/credit_usgs.html#copyright
+ */
+
+ /*
+ * MultiChannelPanel.java
+ *
+ * Created on July 11, 2006, 11:42 AM
+ */
+package gov.usgs.edge.config;
+
+import gov.usgs.anss.db.DBConnectionThread;
+//import gov.usgs.anss.gui.FlagPanel;
+import gov.usgs.anss.util.ErrorTrack;
+import gov.usgs.anss.util.FUtil;
+import gov.usgs.anss.util.Show;
+import gov.usgs.anss.util.Util;
+//import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+
+/**
+ *
+ * @author davidketchum
+ */
+public class RegexpPanel extends javax.swing.JPanel {
+
+  private final FlagOnOffPanel sendtoPanel = new FlagOnOffPanel(SendtoPanel.getJComboBox());
+  ;
+  private final FlagOnOffPanel flagsPanel = new FlagOnOffPanel(FlagsPanel.getJComboBox());
+  ;
+  private final FlagOnOffPanel linksPanel = new FlagOnOffPanel(LinksPanel.getJComboBox());
+  ;
+  private final FlagOnOffPanel hydraPanel = new FlagOnOffPanel(HydraFlagsPanel.getJComboBox());
+  ;
+  //private Statement stmt;
+  private final ErrorTrack err = new ErrorTrack();
+  ;
+  private int delayTime;
+  private double hydraReal;
+  private int nchan;
+
+  // This routine must validate all fields on the form.  The err (ErrorTrack) variable
+  // is used by the FUtil to verify fields.  Use FUTil or custom code here for verifications
+  private boolean chkForm() {
+    // Do not change
+    err.reset();
+    UC.Look(error);
+
+    //USER:  Your error checking code goes here setting the local variables to valid settings
+    // note : Use FUtil.chk* to check dates, timestamps, IP addresses, etc and put them in
+    // canonical form.  store in a class variable.  For instance :
+    //   sdate = FUtil.chkDate(dateTextField, err);
+    // Any errors found should err.set(true);  and err.append("error message");
+    Util.prt("chkForm Channel");
+    delayTime = FUtil.chkInt(delay, err);
+    if (hydraValue.getText().equals("")) {
+      hydraReal = -1.;
+    } else {
+      hydraReal = FUtil.chkDouble(hydraValue, err, 0., 1.01);
+    }
+
+    // No CHANGES : If we found an error, color up error box
+    if (err.isSet()) {
+      error.setText(err.getText());
+      error.setBackground(UC.red);
+    }
+    return err.isSet();
+
+  }
+
+  /**
+   * set initial state of screen.
+   */
+  private void clearScreen() {
+    delay.setText("");
+    commgroup.setSelectedIndex(-1);
+    operator.setSelectedIndex(-1);
+    for (int i = 0; i < sendtoPanel.getList().size(); i++) {
+      sendtoPanel.setOnRadioSelected(i, false);
+      sendtoPanel.setOffRadioSelected(i, false);
+    }
+    for (int i = 0; i < flagsPanel.getList().size(); i++) {
+      flagsPanel.setOnRadioSelected(i, false);
+      flagsPanel.setOffRadioSelected(i, false);
+    }
+    for (int i = 0; i < hydraPanel.getList().size(); i++) {
+      hydraPanel.setOnRadioSelected(i, false);
+      hydraPanel.setOffRadioSelected(i, false);
+    }
+    for (int i = 0; i < linksPanel.getList().size(); i++) {
+      linksPanel.setOnRadioSelected(i, false);
+      linksPanel.setOffRadioSelected(i, false);
+    }
+    channels.setText("");
+    regexp.setText("");
+    picker.setSelectedIndex(-1);
+    protocol.setSelectedIndex(-1);
+    expected.setSelected(false);
+    notExpected.setSelected(false);
+    sort1.setText("");
+    sort2.setText("");
+    gapType.setText("");
+    hydraValue.setText("");
+    // make currently unused stuff off the screen
+    commgroup.setVisible(false);
+    labComm.setVisible(false);
+    operator.setVisible(false);
+    labOperator.setVisible(false);
+    protocol.setVisible(false);
+    labProtocol.setVisible(false);
+    sort1.setVisible(false);
+    sort2.setVisible(false);
+    labSort1.setVisible(false);
+    labSort2.setVisible(false);
+
+  }
+
+  /**
+   * Creates new form MultiChannelPanel.
+   */
+  public RegexpPanel() {
+
+    initComponents();
+    ArrayList<FlagOnOffPanel> subpanels = new ArrayList<>(3);
+    subpanels.add(sendtoPanel);
+    subpanels.add(flagsPanel);
+    subpanels.add(linksPanel);
+    subpanels.add(linksPanel);
+    subpanels.add(hydraPanel);
+    javax.swing.JPanel allflags = new AllFlagsPanel(subpanels);
+    sendtoScroll.add(allflags);
+    sendtoScroll.setViewportView(allflags);
+
+    Look();
+    UC.Look(fixed);
+    clearScreen();
+  }
+
+  private void Look() {
+    UC.Look(this);                    // Set color background
+    UC.Look(sendtoPanel);
+    UC.Look(flagsPanel);
+    UC.Look(linksPanel);
+    UC.Look(hydraPanel);
+  }
+
+  /**
+   * This method is called from within the constructor to initialize the form.
+   * WARNING: Do NOT modify this code. The content of this method is always
+   * regenerated by the Form Editor.
+   */
+  // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+  private void initComponents() {
+    java.awt.GridBagConstraints gridBagConstraints;
+
+    labRegexp = new javax.swing.JLabel();
+    regexp = new javax.swing.JTextField();
+    error = new javax.swing.JTextField();
+    channelsPane = new javax.swing.JScrollPane();
+    channels = new javax.swing.JTextArea();
+    fixed = new javax.swing.JPanel();
+    commgroup = CommGroupPanel.getJComboBox();
+    labComm = new javax.swing.JLabel();
+    labOperator = new javax.swing.JLabel();
+    operator = OperatorPanel.getJComboBox();
+    labDelay = new javax.swing.JLabel();
+    delay = new javax.swing.JTextField();
+    labSort1 = new javax.swing.JLabel();
+    sort1 = new javax.swing.JTextField();
+    labSort2 = new javax.swing.JLabel();
+    sort2 = new javax.swing.JTextField();
+    protocol = ProtocolPanel.getJComboBox();
+    labProtocol = new javax.swing.JLabel();
+    expected = new javax.swing.JRadioButton();
+    notExpected = new javax.swing.JRadioButton();
+    labGapType = new javax.swing.JLabel();
+    gapType = new javax.swing.JTextField();
+    hydraValLab = new javax.swing.JLabel();
+    hydraValue = new javax.swing.JTextField();
+    labPicker = new javax.swing.JLabel();
+    picker = PickerPanel.getJComboBox();
+    sendtoScroll = new javax.swing.JScrollPane();
+    addUpdate = new javax.swing.JButton();
+    reload = new javax.swing.JButton();
+
+    setMaximumSize(new java.awt.Dimension(800, 800));
+    setMinimumSize(new java.awt.Dimension(750, 600));
+    setPreferredSize(new java.awt.Dimension(800, 800));
+    setRequestFocusEnabled(false);
+
+    labRegexp.setText("RegExp (or WHERE clause):");
+    add(labRegexp);
+
+    regexp.setColumns(40);
+    regexp.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        regexpActionPerformed(evt);
+      }
+    });
+    regexp.addFocusListener(new java.awt.event.FocusAdapter() {
+      public void focusLost(java.awt.event.FocusEvent evt) {
+        regexpFocusLost(evt);
+      }
+    });
+    add(regexp);
+
+    error.setBackground(new java.awt.Color(192, 192, 192));
+    error.setColumns(50);
+    error.setEditable(false);
+    add(error);
+
+    channelsPane.setPreferredSize(new java.awt.Dimension(700, 100));
+
+    channels.setColumns(120);
+    channels.setEditable(false);
+    channels.setFont(new java.awt.Font("Monospaced", 0, 13)); // NOI18N
+    channels.setRows(50);
+    channels.setMaximumSize(new java.awt.Dimension(700, 300));
+    channels.setMinimumSize(new java.awt.Dimension(700, 100));
+    channelsPane.setViewportView(channels);
+
+    add(channelsPane);
+
+    fixed.setPreferredSize(new java.awt.Dimension(700, 60));
+    fixed.setLayout(new java.awt.GridBagLayout());
+
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 1;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    fixed.add(commgroup, gridBagConstraints);
+
+    labComm.setText("CommGroup:");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+    fixed.add(labComm, gridBagConstraints);
+
+    labOperator.setText("Operator:");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 2;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+    fixed.add(labOperator, gridBagConstraints);
+
+    operator.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        operatorActionPerformed(evt);
+      }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 3;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    fixed.add(operator, gridBagConstraints);
+
+    labDelay.setText("Delay(s):");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 0;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+    fixed.add(labDelay, gridBagConstraints);
+
+    delay.setColumns(6);
+    delay.setMinimumSize(new java.awt.Dimension(44, 22));
+    delay.setPreferredSize(new java.awt.Dimension(44, 28));
+    delay.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        delayActionPerformed(evt);
+      }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 1;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    fixed.add(delay, gridBagConstraints);
+
+    labSort1.setText("Sort1:");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 2;
+    gridBagConstraints.gridy = 1;
+    fixed.add(labSort1, gridBagConstraints);
+
+    sort1.setColumns(10);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 3;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    fixed.add(sort1, gridBagConstraints);
+
+    labSort2.setText("Sort2:");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 4;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+    fixed.add(labSort2, gridBagConstraints);
+
+    sort2.setColumns(10);
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 5;
+    gridBagConstraints.gridy = 1;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    fixed.add(sort2, gridBagConstraints);
+
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 5;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+    fixed.add(protocol, gridBagConstraints);
+
+    labProtocol.setText("Protocol:");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 4;
+    gridBagConstraints.gridy = 0;
+    gridBagConstraints.anchor = java.awt.GridBagConstraints.EAST;
+    fixed.add(labProtocol, gridBagConstraints);
+
+    expected.setText("Expected");
+    expected.setMargin(new java.awt.Insets(0, 0, 0, 0));
+    expected.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        expectedActionPerformed(evt);
+      }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 6;
+    gridBagConstraints.gridy = 0;
+    fixed.add(expected, gridBagConstraints);
+
+    notExpected.setText("Not Expected");
+    notExpected.setMargin(new java.awt.Insets(0, 0, 0, 0));
+    notExpected.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        notExpectedActionPerformed(evt);
+      }
+    });
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 6;
+    gridBagConstraints.gridy = 1;
+    fixed.add(notExpected, gridBagConstraints);
+
+    labGapType.setText("Gap Type :");
+    fixed.add(labGapType, new java.awt.GridBagConstraints());
+
+    gapType.setColumns(3);
+    fixed.add(gapType, new java.awt.GridBagConstraints());
+
+    hydraValLab.setText("HydraValue:");
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 7;
+    gridBagConstraints.gridy = 1;
+    fixed.add(hydraValLab, gridBagConstraints);
+
+    hydraValue.setColumns(5);
+    hydraValue.setMinimumSize(new java.awt.Dimension(44, 28));
+    hydraValue.setPreferredSize(new java.awt.Dimension(44, 28));
+    gridBagConstraints = new java.awt.GridBagConstraints();
+    gridBagConstraints.gridx = 8;
+    gridBagConstraints.gridy = 1;
+    fixed.add(hydraValue, gridBagConstraints);
+
+    labPicker.setText("Picker:");
+    labPicker.setToolTipText("");
+    fixed.add(labPicker, new java.awt.GridBagConstraints());
+
+    fixed.add(picker, new java.awt.GridBagConstraints());
+
+    add(fixed);
+
+    sendtoScroll.setMaximumSize(new java.awt.Dimension(740, 300));
+    sendtoScroll.setMinimumSize(new java.awt.Dimension(740, 400));
+    sendtoScroll.setPreferredSize(new java.awt.Dimension(740, 400));
+    add(sendtoScroll);
+
+    addUpdate.setText("Update Changes");
+    addUpdate.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        addUpdateActionPerformed(evt);
+      }
+    });
+    add(addUpdate);
+
+    reload.setText("Reload");
+    reload.addActionListener(new java.awt.event.ActionListener() {
+      public void actionPerformed(java.awt.event.ActionEvent evt) {
+        reloadActionPerformed(evt);
+      }
+    });
+    add(reload);
+  }// </editor-fold>//GEN-END:initComponents
+
+  private void notExpectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notExpectedActionPerformed
+// TODO add your handling code here:
+    if (notExpected.isSelected()) {
+      expected.setSelected(false);
+    } else {
+      expected.setSelected(true);
+    }
+  }//GEN-LAST:event_notExpectedActionPerformed
+
+  private void expectedActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_expectedActionPerformed
+// TODO add your handling code here:
+    if (expected.isSelected()) {
+      notExpected.setSelected(false);
+    } else {
+      notExpected.setSelected(true);
+    }
+  }//GEN-LAST:event_expectedActionPerformed
+
+  private void reloadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_reloadActionPerformed
+// TODO add your handling code here:
+
+    SendtoPanel.reload();
+    LinksPanel.reload();
+    FlagsPanel.reload();
+    HydraFlagsPanel.reload();
+    sendtoPanel.buildFlagPanel(SendtoPanel.getJComboBox());
+    flagsPanel.buildFlagPanel(FlagsPanel.getJComboBox());
+    linksPanel.buildFlagPanel(LinksPanel.getJComboBox());
+    hydraPanel.buildFlagPanel(HydraFlagsPanel.getJComboBox());
+    CommGroupPanel.getJComboBox(commgroup);
+    ProtocolPanel.getJComboBox(protocol);
+    PickerPanel.getJComboBox(picker);
+    OperatorPanel.getJComboBox(operator);
+
+  }//GEN-LAST:event_reloadActionPerformed
+
+  private void addUpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addUpdateActionPerformed
+// TODO add your handling code here:
+    if (chkForm()) {
+      return;
+    }
+    try {
+      try (Statement stmt2 = DBConnectionThread.getConnection("edge").
+              createStatement(ResultSet.TYPE_FORWARD_ONLY, ResultSet.CONCUR_UPDATABLE)) {
+        ResultSet rs;
+        if (regexp.getText().length() >= 5 && regexp.getText().substring(0, 5).equalsIgnoreCase("WHERE")) {
+          rs = stmt2.executeQuery("SELECT * FROM edge.channel " + regexp.getText() + " ORDER BY channel");
+        } else {
+          rs = stmt2.executeQuery("SELECT * FROM edge.channel WHERE channel REGEXP '"
+                  + regexp.getText() + "' ORDER BY channel");
+        }
+        int count = 0;
+        while (rs.next()) {
+          boolean somethingChanged = false;
+          Util.prt("for " + rs.getString("channel") + " " + count + "/" + nchan);
+          count++;
+          if (!delay.getText().equals("")) {
+            Util.prt("   Set delay=" + delay.getText());
+            rs.updateInt("delay", Integer.parseInt(delay.getText()));
+            somethingChanged = true;
+          }
+          if (commgroup.isVisible() && commgroup.getSelectedIndex() != -1) {
+            Util.prt("   Set Commgroup" + commgroup.getSelectedItem());
+            rs.updateInt("commgroupid", ((CommGroup) commgroup.getSelectedItem()).getID());
+            somethingChanged = true;
+          }
+          if (operator.isVisible() && operator.getSelectedIndex() != -1) {
+            Util.prt("   Set Operator " + operator.getSelectedItem());
+            rs.updateInt("operatorid", ((Operator) operator.getSelectedItem()).getID());
+            somethingChanged = true;
+          }
+          if (protocol.isVisible() && protocol.getSelectedIndex() != -1) {
+            Util.prt("   Set protocol " + protocol.getSelectedItem());
+            rs.updateInt("protocolid", ((Protocol) protocol.getSelectedItem()).getID());
+            somethingChanged = true;
+          }
+          if (picker.isVisible() && picker.getSelectedIndex() != -1) {
+            Util.prt("   Set Picker " + picker.getSelectedItem());
+            rs.updateInt("nsnnet", ((Picker) picker.getSelectedItem()).getID());
+            somethingChanged = true;
+          }
+          if (sort1.isVisible() && !sort1.getText().equals("")) {
+            Util.prt("   sort1=" + sort1.getText());
+            rs.updateString("sort1", sort1.getText());
+          }
+          if (sort2.isVisible() && !sort2.getText().equals("")) {
+            Util.prt("   Set sort2=" + sort2.getText());
+            rs.updateString("sort2", sort2.getText());
+            somethingChanged = true;
+          }
+          if (!gapType.getText().equals("")) {
+            Util.prt("   Set gaptype=" + gapType.getText());
+            rs.updateString("gaptype", gapType.getText().trim());
+            somethingChanged = true;
+          }
+          if (!hydraValue.getText().equals("")) {
+            Util.prt("   Set hydraValue=" + hydraValue.getText());
+            rs.updateDouble("hydravalue", hydraReal);
+            somethingChanged = true;
+          }
+          if (expected.isSelected() && !notExpected.isSelected()) {
+            somethingChanged = true;
+            rs.updateInt("expected", 1);
+          }
+          if (notExpected.isSelected() && !expected.isSelected()) {
+            somethingChanged = true;
+            rs.updateInt("expected", 0);
+          }
+
+          // Update the sendtos if marked
+          long mask = rs.getLong("sendto");
+          boolean changed = false;
+          ArrayList sendto = sendtoPanel.getList();
+          Util.prt("   Sendto Mask before =" + Util.toHex(mask));
+          for (int i = 0; i < sendto.size(); i++) {
+            if (sendtoPanel.isOffRadioSelected(i)) {
+              mask &= ~((Sendto) sendto.get(i)).getMask();
+              changed = true;
+              Util.prt("   unset sendto " + sendto.get(i));
+            }
+            if (sendtoPanel.isOnRadioSelected(i)) {
+              mask |= ((Sendto) sendto.get(i)).getMask();
+              changed = true;
+              Util.prt("   set sendto " + sendto.get(i));
+            }
+          }
+          Util.prt("   changed=" + changed + " after=" + Util.toHex(mask));
+          if (changed) {
+            somethingChanged = true;
+            rs.updateLong("sendto", mask);
+          }
+
+          // Update the flags if marked
+          mask = rs.getLong("flags");
+          changed = false;
+          ArrayList flags = flagsPanel.getList();
+          Util.prt("   Flags Mask before =" + Util.toHex(mask));
+          for (int i = 0; i < flags.size(); i++) {
+            if (flagsPanel.isOffRadioSelected(i)) {
+              mask &= ~((Flags) flags.get(i)).getMask();
+              changed = true;
+              Util.prt("   unset flags " + flags.get(i));
+            }
+            if (flagsPanel.isOnRadioSelected(i)) {
+              mask |= ((Flags) flags.get(i)).getMask();
+              changed = true;
+              Util.prt("   set flags " + flags.get(i));
+            }
+          }
+          Util.prt("   changed=" + changed + " flags after=" + Util.toHex(mask));
+          if (changed) {
+            somethingChanged = true;
+            rs.updateLong("flags", mask);
+          }
+
+          // Update the  hydra flags if marked
+          mask = rs.getLong("hydraflags");
+          changed = false;
+          ArrayList hydraflags = hydraPanel.getList();
+          Util.prt("   Hydra Flags Mask before =" + Util.toHex(mask));
+          for (int i = 0; i < hydraflags.size(); i++) {
+            if (hydraPanel.isOffRadioSelected(i)) {
+              mask &= ~((HydraFlags) hydraflags.get(i)).getMask();
+              changed = true;
+              Util.prt("   unset hydra flags " + hydraflags.get(i));
+            }
+            if (hydraPanel.isOnRadioSelected(i)) {
+              mask |= ((HydraFlags) hydraflags.get(i)).getMask();
+              changed = true;
+              Util.prt("   set hydraflags " + hydraflags.get(i));
+            }
+          }
+          Util.prt("   changed=" + changed + " hdyraflags after=" + Util.toHex(mask));
+          if (changed) {
+            somethingChanged = true;
+            rs.updateLong("hydraflags", mask);
+          }
+
+          // Update the links if marked
+          mask = rs.getLong("links");
+          changed = false;
+          ArrayList links = linksPanel.getList();
+          Util.prt("   links Mask before =" + Util.toHex(mask));
+          for (int i = 0; i < links.size(); i++) {
+            if (linksPanel.isOffRadioSelected(i)) {
+              mask &= ~((Links) links.get(i)).getMask();
+              changed = true;
+              Util.prt("   unset links " + links.get(i));
+            }
+            if (linksPanel.isOnRadioSelected(i)) {
+              mask |= ((Links) links.get(i)).getMask();
+              changed = true;
+              Util.prt("   set links " + links.get(i));
+            }
+          }
+          Util.prt("   changed=" + changed + " links after=" + Util.toHex(mask));
+          if (changed) {
+            somethingChanged = true;
+            rs.updateLong("links", mask);
+          }
+          if (somethingChanged) {
+            rs.updateTimestamp("updated", Util.TimestampNow());
+          }
+
+          // Changes are done, Update the row.
+          rs.updateRow();
+
+        }
+        rs.close();
+      }
+    } catch (SQLException e) {
+      Util.SQLErrorPrint(e, "Trying to update from RegexpPanel");
+    }
+    clearScreen();
+  }//GEN-LAST:event_addUpdateActionPerformed
+
+  private void regexpFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_regexpFocusLost
+    doRegexp();
+  }//GEN-LAST:event_regexpFocusLost
+
+  private void regexpActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regexpActionPerformed
+    // Need to run list of matching channels, populate the channels text area
+    doRegexp();
+    regexp.transferFocus();
+  }//GEN-LAST:event_regexpActionPerformed
+  private void doRegexp() {
+    if (regexp.getText().equals("")) {
+      return;
+    }
+    try {
+
+      StringBuilder sb;
+      int commID;
+      int operID;
+      int protID;
+      int expect;
+      int pickerID;
+      String srt1;
+      String srt2;
+      String gtype;
+      double hval;
+      int del;
+      ArrayList sendto;
+      long[] sendtos;
+      ArrayList flag;
+      long[] flags;
+      ArrayList hydraflag;
+      long[] hydraflags;
+      ArrayList link;
+      long[] links;
+      try (Statement stmt = DBConnectionThread.getThread("edge").getNewStatement(false)) {
+        String sql = "SELECT * FROM edge.channel WHERE channel REGEXP '"
+                + regexp.getText() + "' ORDER BY channel";
+        if (regexp.getText().length() >= 5 && regexp.getText().substring(0, 5).equalsIgnoreCase("WHERE")) {
+          sql = "SELECT * FROM edge.channel " + regexp.getText() + " ORDER BY channel";
+        }
+        try (ResultSet rs = stmt.executeQuery(sql)) {
+          String lastStation = "";
+          sb = new StringBuilder(1000);
+          commID = -1;
+          operID = -1;
+          protID = -1;
+          expect = -1;
+          pickerID = -1;
+          srt1 = "";
+          srt2 = "";
+          gtype = "";
+          hval = -1.;
+          del = -1;
+          sendtoPanel.setAllClear();
+          flagsPanel.setAllClear();
+          linksPanel.setAllClear();
+          hydraPanel.setAllClear();
+          sendto = sendtoPanel.getList();
+          sendtos = new long[sendto.size()];
+          for (int i = 0; i < sendto.size(); i++) {
+            sendtos[i] = -1;
+          }
+          flag = flagsPanel.getList();
+          flags = new long[flag.size()];
+          for (int i = 0; i < flag.size(); i++) {
+            flags[i] = -1;
+          }
+          hydraflag = hydraPanel.getList();
+          hydraflags = new long[hydraflag.size()];
+          for (int i = 0; i < hydraflag.size(); i++) {
+            hydraflags[i] = -1;
+          }
+          link = linksPanel.getList();
+          links = new long[link.size()];
+          for (int i = 0; i < link.size(); i++) {
+            links[i] = -1;
+          }
+          nchan = 0;
+          // for each member of the selected set, see if all of the parameters are set the
+          // same by calling chkParm for each value.  the parameter check must be initialized
+          // to -1 to start.
+          while (rs.next()) {
+            String chan = (rs.getString("channel") + "            ").substring(0, 12);
+            if (!chan.substring(0, 7).equals(lastStation)) {
+              if (!lastStation.equals("")) {
+                sb.append("\n");
+              }
+              sb.append(chan.substring(0, 7)).append(" ");
+              lastStation = chan.substring(0, 7);
+            }
+            sb.append(chan.substring(7, 12)).append(" ");
+            nchan++;
+            if (nchan % 12 == 0) {
+              sb.append("\n        ");
+            }
+
+            //commID = chkParm(commID, rs.getInt("commgroupid"));   // These are no longer active.
+            //operID = chkParm(operID, rs.getInt("operatorid"));
+            //protID = chkParm(protID, rs.getInt("protocolid"));
+            pickerID = chkParm(protID, rs.getInt("nsnnet"));
+            expect = chkParm(expect, rs.getInt("expected"));
+            del = chkParm(del, rs.getInt("delay"));
+            srt1 = chkParm(srt1, rs.getString("sort1"));
+            srt2 = chkParm(srt2, rs.getString("sort2"));
+            gtype = chkParm(gtype, rs.getString("gaptype"));
+            hval = chkParm(hval, rs.getDouble("hydravalue"));
+            long mask = rs.getLong("sendto");
+            for (int i = 0; i < sendto.size(); i++) {
+              sendtos[i] = chkParm(sendtos[i], ((Sendto) sendto.get(i)).getMask() & mask);
+            }
+            mask = rs.getLong("links");
+            for (int i = 0; i < link.size(); i++) {
+              links[i] = chkParm(links[i], ((Links) link.get(i)).getMask() & mask);
+            }
+            mask = rs.getLong("flags");
+            for (int i = 0; i < flag.size(); i++) {
+              flags[i] = chkParm(flags[i], ((Flags) flag.get(i)).getMask() & mask);
+            }
+            mask = rs.getLong("hydraflags");
+            for (int i = 0; i < hydraflag.size(); i++) {
+              hydraflags[i] = chkParm(hydraflags[i], ((HydraFlags) hydraflag.get(i)).getMask() & mask);
+            }
+          }
+        }
+      }
+      sb.append("\n").append(nchan).append(" channels\n");
+      addUpdate.setText("Update " + nchan + " channels");
+      channels.setText(sb.toString());
+      if (commgroup.isVisible() && commID > 0) {
+        CommGroupPanel.setJComboBoxToID(commgroup, commID);
+      }
+      if (operator.isVisible() && operID > 0) {
+        OperatorPanel.setJComboBoxToID(operator, operID);
+      }
+      if (protocol.isVisible() && protID > 0) {
+        ProtocolPanel.setJComboBoxToID(protocol, protID);
+      }
+      if (picker.isVisible() && pickerID > 0) {
+        PickerPanel.setJComboBoxToID(picker, pickerID);
+      }
+      if (expect > 0) {
+        expected.setSelected(true);
+        notExpected.setSelected(false);
+      } else if (expect == 0) {
+        notExpected.setSelected(true);
+        expected.setSelected(false);
+      } else {
+        expected.setSelected(true);
+        notExpected.setSelected(true);
+      }
+      if (!srt1.equals("CHG")) {
+        sort1.setText(srt1);
+      }
+      if (!srt2.equals("CHG")) {
+        sort2.setText(srt2);
+      }
+      if (!gtype.equals("CHG")) {
+        gapType.setText(gtype);
+      }
+      if (hval > 0) {
+        hydraValue.setText(Util.df22(hval));
+      }
+      if (del != -2) {
+        delay.setText("" + del);
+      }
+
+      // Set on off or neither as determined by the chkParms
+      for (int i = 0; i < sendto.size(); i++) {
+        if (sendtos[i] != -2) {
+          if (sendtos[i] == 0) {
+            sendtoPanel.setOff(i);
+          } else {
+            sendtoPanel.setOn(i);
+          }
+        }
+      }
+      // Set on off or neither as determined by the chkParms
+      for (int i = 0; i < flag.size(); i++) {
+        if (flags[i] != -2) {
+          if (flags[i] == 0) {
+            flagsPanel.setOff(i);
+          } else {
+            flagsPanel.setOn(i);
+          }
+        }
+      }
+      // Set on off or neither as determined by the chkParms
+      for (int i = 0; i < hydraflag.size(); i++) {
+        if (hydraflags[i] != -2) {
+          if (hydraflags[i] == 0) {
+            hydraPanel.setOff(i);
+          } else {
+            hydraPanel.setOn(i);
+          }
+        }
+      }
+      // Set on off or neither as determined by the chkParms
+      for (int i = 0; i < link.size(); i++) {
+        if (links[i] != -2) {
+          if (links[i] == 0) {
+            linksPanel.setOff(i);
+          } else {
+            linksPanel.setOn(i);
+          }
+        }
+      }
+    } catch (SQLException e) {
+      e.printStackTrace();
+      channels.setText("SQL error getting channels\n" + e.getMessage() + "\n" + e.getErrorCode() + "\n" + e.getSQLState());
+    }
+  }
+
+  /**
+   * The chkParms work this way. User sets commID to -1 at beginning. It then
+   * calls chkParm(commID, i) where i is each succeeding value for a member of
+   * the selected set. chkParms return -2 when parameters are found not to be
+   * set all the same and the value when they are all set the same
+   */
+  private int chkParm(int commID, int i) {
+    if (commID != -2) {
+      if (commID == -1) {
+        commID = i;
+      }
+      if (commID != i) {
+        commID = -2;
+      }
+    }
+    return commID;
+  }
+
+  private String chkParm(String commID, String i) {
+    if (!commID.equals("CHG")) {
+      if (commID.equals("")) {
+        commID = i;
+      }
+      if (!commID.equals(i)) {
+        commID = "CHG";
+      }
+    }
+    return commID;
+  }
+
+  private long chkParm(long commID, long i) {
+    if (commID != -2) {
+      if (commID == -1) {
+        commID = i;
+      }
+      if (commID != i) {
+        commID = -2;
+      }
+    }
+    return commID;
+  }
+
+  private double chkParm(double commID, double i) {
+    if (commID != -2) {
+      if (commID == -1) {
+        commID = i;
+      }
+      if (commID != i) {
+        commID = -2;
+      }
+    }
+    return commID;
+  }
+  private void delayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_delayActionPerformed
+// TODO add your handling code here:
+  }//GEN-LAST:event_delayActionPerformed
+
+  private void operatorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operatorActionPerformed
+// TODO add your handling code here:
+  }//GEN-LAST:event_operatorActionPerformed
+
+
+  // Variables declaration - do not modify//GEN-BEGIN:variables
+  private javax.swing.JButton addUpdate;
+  private javax.swing.JTextArea channels;
+  private javax.swing.JScrollPane channelsPane;
+  private javax.swing.JComboBox commgroup;
+  private javax.swing.JTextField delay;
+  private javax.swing.JTextField error;
+  private javax.swing.JRadioButton expected;
+  private javax.swing.JPanel fixed;
+  private javax.swing.JTextField gapType;
+  private javax.swing.JLabel hydraValLab;
+  private javax.swing.JTextField hydraValue;
+  private javax.swing.JLabel labComm;
+  private javax.swing.JLabel labDelay;
+  private javax.swing.JLabel labGapType;
+  private javax.swing.JLabel labOperator;
+  private javax.swing.JLabel labPicker;
+  private javax.swing.JLabel labProtocol;
+  private javax.swing.JLabel labRegexp;
+  private javax.swing.JLabel labSort1;
+  private javax.swing.JLabel labSort2;
+  private javax.swing.JRadioButton notExpected;
+  private javax.swing.JComboBox operator;
+  private javax.swing.JComboBox picker;
+  private javax.swing.JComboBox protocol;
+  private javax.swing.JTextField regexp;
+  private javax.swing.JButton reload;
+  private javax.swing.JScrollPane sendtoScroll;
+  private javax.swing.JTextField sort1;
+  private javax.swing.JTextField sort2;
+  // End of variables declaration//GEN-END:variables
+
+  /**
+   * This main displays the form Pane by itself
+   *
+   * @param args command line args ignored
+   */
+  public static void main(String args[]) {
+    DBConnectionThread jcjbl;
+    Util.init(UC.getPropertyFilename());
+    UC.init();
+    try {
+      // Make test DBconnection for form
+      jcjbl = new DBConnectionThread(DBConnectionThread.getDBServer(), DBConnectionThread.getDBSchema(),
+              UC.defaultUser(), UC.defaultPassword(), true, false, DBConnectionThread.getDBSchema(), DBConnectionThread.getDBVendor());
+      if (!DBConnectionThread.waitForConnection(DBConnectionThread.getDBSchema())) {
+        if (!DBConnectionThread.waitForConnection(DBConnectionThread.getDBSchema())) {
+          if (!DBConnectionThread.waitForConnection(DBConnectionThread.getDBSchema())) {
+            Util.prt("Could not connect to DB " + jcjbl);
+            System.exit(1);
+          }
+        }
+      }
+      Show.inFrame(new RegexpPanel(), UC.XSIZE, UC.YSIZE);
+    } catch (InstantiationException e) {
+    }
+  }
+}

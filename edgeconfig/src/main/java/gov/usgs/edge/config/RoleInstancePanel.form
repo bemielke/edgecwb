@@ -1,0 +1,808 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.2" maxVersion="1.2" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="java.awt.GridBagLayout" name="gridBagLayout1">
+    </Component>
+  </NonVisualComponents>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-60,0,0,3,18"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="jLabel1">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Role : "/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="13" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="role">
+      <Properties>
+        <Property name="editable" type="boolean" value="true"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[150, 28]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[150, 28]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roleActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="getJComboBox();"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Container class="javax.swing.JPanel" name="topPanel">
+      <Properties>
+        <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+          <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+            <EtchetBorder/>
+          </Border>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 105]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 105]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="lblIpadr">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="IP Address : "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ipadr">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="The IP address of this role."/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[130, 28]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[130, 28]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblCPU">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Node:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="cpuID">
+          <Properties>
+            <Property name="editable" type="boolean" value="true"/>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Select the physical node this role is to run on.  For sites not using dynamic roles to cpus on a private network, this is the same as the role generally."/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 28]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 28]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cpuIDActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="CpuPanel.getJComboBox();"/>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="RolePanel_cpu"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="hasdata">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Data ?"/>
+            <Property name="enabled" type="boolean" value="false"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labAccounts">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Enable Accts:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="accounts">
+          <Properties>
+            <Property name="toolTipText" type="java.lang.String" value="This role has responsibilty to configure all of the listed accounts via the database and GUI."/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[350, 28]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[350, 28]"/>
+            </Property>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labFailCpu">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="FailOverNode:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="failoverCpuID">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Set the node/cpu that this role would normally failover to.  In an N+1 failover configuration this would be the idle N+1 server."/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 27]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[150, 27]"/>
+            </Property>
+          </Properties>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="CpuPanel.getJComboBox();"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="failover">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Failed Over"/>
+            <Property name="toolTipText" type="java.lang.String" value="If selected, this role is marked to run on its failover node/cpu and not on the configured one."/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JTabbedPane" name="mainTabs">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[600, 400]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[600, 400]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="4" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout"/>
+      <SubComponents>
+        <Container class="javax.swing.JPanel" name="alarmPanel">
+          <Properties>
+            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                <EtchetBorder/>
+              </Border>
+            </Property>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[550, 200]"/>
+            </Property>
+            <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[550, 200]"/>
+            </Property>
+          </Properties>
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Alarm &amp; Other Process Config">
+                <Property name="tabTitle" type="java.lang.String" value="Alarm &amp; Other Process Config"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="labQuerymom">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="QueryMom (mB):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="querymom">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB).  Zero means the process is not run. Negative means run in with -test."/>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[50, 28]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[50, 28]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="querymomFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labAlarm">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alarm(mB):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="alarm">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB - try 350).    Zero means the process is not run."/>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[40, 28]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[40, 28]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="alarmFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labTcpH">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="TcpHoldings(mB):"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JTextField" name="tcpholdings">
+              <Properties>
+                <Property name="columns" type="int" value="4"/>
+                <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB - try 50).  Zero means the process is not run. Negative means run in with -test."/>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[40, 28]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[40, 28]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="tcpholdingsFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="minButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Set Minimum"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="minButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JButton" name="normButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Set Normal"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="normButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator2">
+              <Properties>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[500, 10]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[500, 10]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="labThreads">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Select Threads within Alarm :"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="alarmButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="ProcessAlarms"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;Enable running of the Alarm thread which can generate pages and emails after receiving UDP events from any Edge/CWB process. &#xa;&#xa;Note this is distinct from the alarm process which runs on all nodes.  If this is selected, this alarm process will actually handle alarming.&#xa;&#xa;Only one of these is run per installation (that is many servers send Alarm UDP event packets to a single server).  &#xa;&#xa;The server the property &apos;StatusServer&apos; must point on all nodes to the role running the alarm thread.&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alarmButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="udpchannelButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="UdpChannel"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Enable a UdpChannel thread which gathers summaries of every packet received and &#xa;maintains a list of channels and their last time data was received and the latency of that data.   &#xa;There is only one UdpChannel thread for an installation and all computer doing input &#xa;send the data summaries via a ChannelSender to this single node.&#xa;All summaries are send to the node set in property &apos;StatusServer&apos; which is normally set in the edge_$SERVER.prop file.&#xa;This thread is the source of data on latency and for ChannelDisplay and many other clients.&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="udpchannelButtonActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="snwButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="SNW"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;PRE&gt;&#xa;Enable the SNW tracking thread which uses the channel information in UdpChannel &#xa;and the SeisnetWatch groups to make alarms and status for those SNW groups and all networks. &#xa;It must be run in the alarm where the UdpChannel is running and the Alarm processing must be selected as well.&#xa;Note: this thread must be selected for network and SNW group alarms to be generated.&#xa;This thread must also be run if latency and last minute received data is to be sent to a real SNW server.&#xa;&lt;/PRE&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="snwSenderButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="SNW Sender"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;PRE&gt;&#xa;Enable this Thread (SNWSender) which sends information from the SNW thread to a SNW server.  &#xa;Without this the groups are maintained and alarmed, but the information is not forwarded to a SNW server.&#xa;The SNW, UdpChannel, thread must also be selected for this to work.&#xa;&lt;/PRE&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="cmdStatusButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="CmdServer"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;PRE&gt;&#xa;Enable the CommandStatusServer thread which listens for connections from a &#xa;EdgeConfig GUI and executes commands in the EdgeMaint panel.&#xa;This thread must be selected on every node that needs to have GUI based command enabled.&#xa;&lt;/PRE&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="dbmsgButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="DBMsgSrv"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Start a DBMessageServer thread which takes text lines from various processes and creates MySQL rows.&#xa;&#xa;Only one of these per installation is needed and is run on the server pointed to by &apos;StatusServer&apos; property.&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="configButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Config "/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Start a EdgeMomConfigThread which does all of the configuration of a node based &#xa;on the configuration in the database.  It converts information from the cpu, role, instance, and edge setup&#xa;GUI tabs into the  crontab and configuration files for the node.&#xa;&#xa;This must be enabled on all nodes that want configuration from the database.&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="latencyServer">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="LatencySrv"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Start a LatencyServer thread which provides latency information to clients like Fetcher.  &#xa;&#xa;Fetcher uses this to throttle fetches if the realtime data is showing increased latency.&#xa;&#xa;This is normally run on the same alarm instance as the UdpChannel thread &#xa;which is pointed to by the &apos;StatusServer&apos; property.&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="routesButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Routes"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Start a MakeVsatRoutes thread to control alternate back haul routing at the NEIC over the VSAT bypass.  &#xa;&#xa;This thread updates the routing table on the the server in order to change the access route from &#xa;VPNs through the NOCs to using the Golden VSAT.&#xa;&#xa;This must be run on all roles which have stations on the VSAT and hence can be bypassed.&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="bhcheckButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="BH Check"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Start a HughesNOCChecker thread to ping the Hughes NOC through both the VPN and VSATs &#xa;and insure both of these backhauls are operating.  Sends UDP events to Alarm. &#xa;&#xa;Normally this is only run on one node and that node must have access to the NOC VPNs and the Golden VSAT.&#xa;&lt;/pre&gt;&#xa;&lt;/html?"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="webButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="web"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Start a WebStation thread to update a MySQL database with flow information based on the UdpChannel.  &#xa;This database drives the GSN Operations status pages (http://earthquake.usgs.gov/monitoring/operations/).&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="etchostsButton">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="/etc/hosts"/>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;Start a MakeEtcHosts thread which writes out the /etc/hosts table after adding entries for all RTS, Q330s, VSAT gateways etc.  &#xa;&#xa;Makes &quot;ping isco&quot;, &quot;ping isco-gw&quot;, ping isco-q330,  and &quot;ping flwy-rt&quot; possible.&#xa;&lt;/html&gt;&#xa;&lt;/pre&gt;"/>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JSeparator" name="jSeparator1">
+              <Properties>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 10]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 10]"/>
+                </Property>
+              </Properties>
+            </Component>
+            <Component class="javax.swing.JLabel" name="argsLabel">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Alarm args:"/>
+              </Properties>
+              <Events>
+                <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="argsLabelFocusLost"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JTextField" name="alarmArgs">
+              <Properties>
+                <Property name="columns" type="int" value="90"/>
+                <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                  <Font name="Monospaced" size="10" style="0"/>
+                </Property>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;Most of the alarm configuration comes from selecting the switchs for the threads to run.  However, additional switches to change thread behavior can be added here.&#xa;&lt;PRE&gt;&#xa; Arg    Description&#xa; -noalarm    Disable processing of UDPEvent packets and alarming by this node (no SNW work is possible)&#xa; -notrap     Do not set up a SNMP trap handler (this is now the default)&#xa; -trap       Set up a SNMP trap handler&#xa; -replicate  Forward all UDP events to the given IP and port&#xa; -repIP      The replication target IP address (NAGIOS)&#xa; -repPort    The port n the repIP to send the replication packets&#xa; -nosnwevent      Do not do SNW group monitoring and generate events on those groups (SNWGroupEventProcess)&#xa; -dbgmail    If present turn on debug output when s SimpleSMTPTHread tries to send mail&#xa; -bind IP1:IP2:port1:port2 Use these two ips are ports to bind the local end of the connection, emailAlt will use 2nd binding&#xa; -dbg        Turn on more debug output&#xa; -qmom file  File with lines like ip:cwbport:qport:CH1:CH2... Set up a test monitor of a QueryMom on the given ip and ports and chans (channels have - for space)&#xa; -qport file Read in the config file and setup MonitorPorts for each.  Form of file is &quot;ipadr:port:[process[:account[:action]]]&#xa; -noDB       This Alarm is only for relaying or logging messages, it has no DB so it cannot take any action&#xa; -udphb         Send heartbeat UDP packets to configured edge based field stations (no normally used outside NEIC)&#xa; -nodbmsg    Do not start a DBMessageServer on port 7985 - this would be very unusual as it does not harm&#xa; -noudpchan  Do not start a UdpChannel server - this would be very unusual as it does no harm&#xa;  &#xa; Switches for the UdpChannel thread which feeds channel data to ChannelDisplay and other clients&#xa; -web       Start a WebStationCLient to keep USGS operational web page status up-to-date (NEIC only)&#xa; -snw       Start a SNWChannelClient to check for rate changes, new stations and channels etc&#xa; -snwsender Send information to SNW Server from the SNWChannelClient (i.e. you are running a SNW server and need flow data)&#xa; -mod50     Set the modulus for lastdata updates to 50 (def=20) - the lastdata will be updated about every modulus*3 minutes&#xa; &#xa; Switches for DBMessageServer :&#xa; -p    port   Set the port number (default=7985)&#xa;&lt;/PRE&gt;&#xa;&lt;/html&gt;"/>
+                <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[500, 28]"/>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[450, 28]"/>
+                </Property>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="alarmArgsActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JRadioButton" name="neicOptions">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Show NEIC Only Options"/>
+                <Property name="toolTipText" type="java.lang.String" value="If selected, certain alarm and special processes will be shown on this form.  These processes are used at the NEIC and are not generally useful outside of there."/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="neicOptionsActionPerformed"/>
+              </Events>
+            </Component>
+            <Container class="javax.swing.JPanel" name="neicPanel">
+              <Properties>
+                <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                  <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
+                    <EtchetBorder/>
+                  </Border>
+                </Property>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 75]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 75]"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JLabel" name="labMDS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="MetaDataSrv:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="mds">
+                  <Properties>
+                    <Property name="columns" type="int" value="4"/>
+                    <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB).    Zero means the process is not run. Negative means run in with -test."/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="mdsFocusLost"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labQML">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="QuakeML:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="quakeml">
+                  <Properties>
+                    <Property name="columns" type="int" value="4"/>
+                    <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB).    Zero means the process is not run."/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="quakemlFocusLost"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labConsole">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Console (mB):"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="console">
+                  <Properties>
+                    <Property name="columns" type="int" value="4"/>
+                    <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB).  Zero do not run.  Negative means run in with -test."/>
+                    <Property name="focusTraversalKeysEnabled" type="boolean" value="false"/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="consoleFocusLost"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labAftac">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="AftacHold:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="aftac">
+                  <Properties>
+                    <Property name="columns" type="int" value="4"/>
+                    <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB).    Zero means the process is not run. Negative means run in with -test."/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="aftacFocusLost"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labRTS">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="RTS:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="rts">
+                  <Properties>
+                    <Property name="columns" type="int" value="4"/>
+                    <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB).    Zero means the process is not run. Negative means run in with -test."/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="rtsFocusLost"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labSMG">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="SMGetter:"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="smgetter">
+                  <Properties>
+                    <Property name="columns" type="int" value="4"/>
+                    <Property name="toolTipText" type="java.lang.String" value="The heap memory for this process in megabytes (mB).    Zero means the process is not run. Negative means run in with -test."/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                    <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[40, 28]"/>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="smgetterFocusLost"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JLabel" name="labNeic">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Special Processes:"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="crontabPanel">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="Manual Crontab">
+                <Property name="tabTitle" type="java.lang.String" value="Manual Crontab"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="labCrontab">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Custom Crontab:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="crontabScroll">
+              <Properties>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 290]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 290]"/>
+                </Property>
+              </Properties>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="crontab">
+                  <Properties>
+                    <Property name="columns" type="int" value="80"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Monospaced" size="10" style="0"/>
+                    </Property>
+                    <Property name="rows" type="int" value="30"/>
+                    <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;Enter crontab entries for custom processing.   &#xa;&lt;br&gt;This normal is once a day processes and scripts such as updateHoldings, database clean up, or other special scripts that are related to the role.  &#xa;&lt;br&gt;Most of the one time scripts can be in the &quot;cpu&quot; panel and few are known to be best put here.&#xa;&lt;PRE&gt;&#xa;&#xa;Note : the chkCWB and chkNEIC scripts can be invoked starting with these tags and omitting the output log. &#xa;The configuration software will make a crontab line which will be run every minute and &#xa;the log will go to &apos;&gt;&gt;LOG/chkcwb.log 2&gt;&amp;1&apos;.&#xa;&#xa;Symbols that can be present and substituted :&#xa;$INSTANCE  replaced with the instance setting.  Useful in ring file names.&#xa;$ROLE replaced with the role name or primary role name&#xa;$SERVER replaced with the physical node/cpu system name.&#xa;&lt;/PRE&gt;&#xa;&lt;/html&gt;&#xa;"/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JButton" name="setDefaultCrontab">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Set Default Crontab"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="setDefaultCrontabActionPerformed"/>
+              </Events>
+            </Component>
+          </SubComponents>
+        </Container>
+        <Container class="javax.swing.JPanel" name="configPanel">
+          <Constraints>
+            <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout" value="org.netbeans.modules.form.compat2.layouts.support.JTabbedPaneSupportLayout$JTabbedPaneConstraintsDescription">
+              <JTabbedPaneConstraints tabName="ConfigSummary">
+                <Property name="tabTitle" type="java.lang.String" value="ConfigSummary"/>
+              </JTabbedPaneConstraints>
+            </Constraint>
+          </Constraints>
+
+          <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+          <SubComponents>
+            <Component class="javax.swing.JLabel" name="lblDesc">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Description : "/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="descScroll">
+              <Properties>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 150]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 150]"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="description">
+                  <Properties>
+                    <Property name="columns" type="int" value="40"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Monospaced" size="10" style="0"/>
+                    </Property>
+                    <Property name="rows" type="int" value="10"/>
+                    <Property name="toolTipText" type="java.lang.String" value="Enter a description that breifly describes what this role is used for."/>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+            <Component class="javax.swing.JLabel" name="labConfig">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Current Config:"/>
+              </Properties>
+            </Component>
+            <Container class="javax.swing.JScrollPane" name="configScrollPane">
+              <Properties>
+                <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;&lt;pre&gt;&#xa;This area contains a summary of all of the configuration nodes, &#xa;what accounts are active on those nodes.  &#xa;It is NOT editable.&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+                <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 140]"/>
+                </Property>
+                <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                  <Dimension value="[550, 140]"/>
+                </Property>
+              </Properties>
+              <AuxValues>
+                <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+              </AuxValues>
+
+              <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+              <SubComponents>
+                <Component class="javax.swing.JTextArea" name="config">
+                  <Properties>
+                    <Property name="editable" type="boolean" value="false"/>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="cc" green="cc" red="cc" type="rgb"/>
+                    </Property>
+                    <Property name="columns" type="int" value="70"/>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Monospaced" size="12" style="0"/>
+                    </Property>
+                    <Property name="rows" type="int" value="30"/>
+                    <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+                      <Dimension value="[490, 12]"/>
+                    </Property>
+                  </Properties>
+                </Component>
+              </SubComponents>
+            </Container>
+          </SubComponents>
+        </Container>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JButton" name="addUpdate">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Add/Update"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addUpdateActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="15" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="ID">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="8"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[80, 28]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="17" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labID">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="ID :"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="17" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="error">
+      <Properties>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="columns" type="int" value="40"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[488, 22]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="delete">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Delete"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="16" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JButton" name="rebuild">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Rebuild"/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rebuildActionPerformed"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="19" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labChangeRole">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Change Role Name:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="18" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="22" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="changeRole">
+      <Properties>
+        <Property name="columns" type="int" value="15"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[150, 28]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="18" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+  </SubComponents>
+</Form>

@@ -39,29 +39,31 @@ dependencies {
   codacy "com.codacy:codacy-coverage-reporter:4.0+"
 
   // javax.json
-  compile "javax.json:javax.json-api:1.1"
-  compile "org.glassfish:javax.json:1.1"
+//  compile "javax.json:javax.json-api:1.1"
+//  compile "org.glassfish:javax.json:1.1"
   // database drivers
-  compile "mysql:mysql-connector-java:5.1.47"
-  compile "org.xerial:sqlite-jdbc:3.23.1"
-  compile group: 'org.jasypt', name: 'jasypt', version: '1.9.0'
-  compile group: 'org.jdesktop', name: 'swing-layout', version: '1.0.3'
+//  compile "mysql:mysql-connector-java:5.1.47"
+//  compile "org.xerial:sqlite-jdbc:3.23.1"
+//  compile group: 'org.jasypt', name: 'jasypt', version: '1.9.0'
+//  compile group: 'org.jdesktop', name: 'swing-layout', version: '1.0.3'
 
   // compile files("lib/JARFILE.JAR")
-  compile fileTree(include: ['*.jar'], dir: 'libs')
+//  compile fileTree(include: ['*.jar'], dir: 'libs')
   
 
   testCompile "junit:junit-dep:4.11"
 }
 
-sourceSets {
-//  main {
-//    // java.excludes = ["**/XmlVerifier*"]
-//  }
-  cwblib {    
-        
-  }
-}
+//sourceSets {
+////  main {
+////    // java.excludes = ["**/XmlVerifier*"]
+////  }
+//  cwblib { }
+//  FilterPicker6{ }
+//  CWBPicker{ }
+//  subspacedetector{ }
+//  SubspacePreprocess{}
+//}
 
 // show compile warnings
 tasks.withType(JavaCompile) {
@@ -102,32 +104,151 @@ test.dependsOn testCleanup
 // create javadocs
 javadoc {
   excludes = ['com/isti/**']
-  options.addBooleanOption('html5', true)
+  
+//  options.addBooleanOption('html5', true)
 }
 
 // create jar file
-jar {
-  baseName = "EdgeCWB"
-  manifest {
-    attributes "Git-Commit": grgit.head().id
-    // attributes "Main-Class": "gov.usgs.edge.MainClass"
-  }
-  from {
-    // classes and dependencies
-    configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
-    sourceSets.cwblib.output
-  }
-}
+//jar {
+//  baseName = "EdgeCWB"
+//  manifest {
+//    attributes "Git-Commit": grgit.head().id
+//    // attributes "Main-Class": "gov.usgs.edge.MainClass"
+//  }
+//  from {
+//    // classes and dependencies
+//    configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+////    configurations.runtime.collect { it.isDirectory() ? it : zipTree(it) }
+//  }
+//}
 
 // create zip bundle
-task createZip(type: Zip, dependsOn: jar) {
-  archiveName "EdgeCWB.zip"
-  // init scripts and README
-  // from "etc/examples/default"
-  // example listeners
-  // from ("etc/examples/client/bin") { include "ExampleListener.*" }
-  // EdgeCWB.jar
-  from jar
+//task createZip(type: Zip, dependsOn: jar) {
+//  archiveName "EdgeCWB.zip"
+//  // init scripts and README
+//  // from "etc/examples/default"
+//  // example listeners
+//  // from ("etc/examples/client/bin") { include "ExampleListener.*" }
+//  // EdgeCWB.jar
+//  from jar
+//}
+
+task EdgeCWBJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'gov.usgs.anss.cwb.CWB'
+    }
+    baseName = 'EdgeCWB'
+    
+    from { 
+        [
+            project(':cwblib').sourceSets.main.output,
+            project(':cwblib').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':CWBPicker').sourceSets.main.output,
+            project(':CWBPicker').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':FilterPicker6').sourceSets.main.output,
+            project(':FilterPicker6').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':rrpclient').sourceSets.main.output,
+            project(':rrpclient').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':rrpserver').sourceSets.main.output,
+            project(':rrpserver').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':subspacedetector').sourceSets.main.output,
+            project(':subspacedetector').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':SubspacePreProcess').sourceSets.main.output,
+            project(':SubspacePreProcess').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':USGSSeedlink').sourceSets.main.output,
+            project(':USGSSeedlink').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':edgecwbjar').sourceSets.main.output,
+            project(':edgecwbjar').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)}
+        ]
+    }
+}
+
+
+task DbSetupJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class' : 'gov.usgs.anss.db.DBSetup'
+    } 
+    baseName = 'dbsetup'
+    from {
+        [
+         project(':cwblib').sourceSets.main.output,
+         project(':cwblib').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+//         project(':cwblib').configurations.runtime.collect {it.isDirectory() ? it :zipTree(it)},
+         project(':dbsetup').sourceSets.main.output,
+         project(':dbsetup').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+//         project(':dbsetup').configurations.runtime.collect {it.isDirectory() ? it :zipTree(it)}         
+        ]
+    }    
+}
+
+task EdgeConfigJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'gov.usgs.edge.config.GUIDispatcher'
+    }
+    baseName = 'EdgeConfig'
+    
+    from { 
+        [
+            project(':cwblib').sourceSets.main.output,
+            project(':cwblib').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':CWBPicker').sourceSets.main.output,
+            project(':CWBPicker').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},            
+            project(':subspacedetector').sourceSets.main.output,
+            project(':subspacedetector').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},                        
+            project(':edgeconfig').sourceSets.main.output,
+            project(':edgeconfig').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)}
+        ]
+    }
+}
+
+task CwbQueryJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class' : 'gov.usgs.anss.cwbqueryclient.CWBQuery'
+    }
+    baseName = 'CwbQuery'
+    from {
+        [
+            project(':cwblib').sourceSets.main.output,
+            project(':cwblib').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},
+            project(':cwbquery').sourceSets.main.output,
+            project(':cwbquery').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)}
+        ]
+    }
+}
+
+task ChannelDisplayJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class' : 'gov.usgs.anss.channeldisplay.ChannelDisplay'        
+    }
+    baseName = 'ChannelDisplay'
+    from {
+        [
+            project(':cwblib').sourceSets.main.output,
+            project(':cwblib').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},            
+            project(':dbsetup').sourceSets.main.output,
+            project(':dbsetup').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},                        
+            project(':edgeconfig').sourceSets.main.output,
+            project(':edgeconfig').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)}
+        ]
+    }
+}
+
+task MsreadJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class' : 'gov.usgs.anss.msread.msread'
+    }
+    baseName = 'msread'
+    from {
+        [   
+            project(':cwblib').sourceSets.main.output,
+            project(':cwblib').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},            
+            project(':dbsetup').sourceSets.main.output,
+            project(':dbsetup').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)},                        
+            project(':msread').sourceSets.main.output,
+            project(':msread').configurations.compile.collect {it.isDirectory() ? it :zipTree(it)}                                   
+        ]
+        
+    }
 }
 
 // publish documentation and reports to gh-pages
@@ -138,8 +259,8 @@ gitPublish {
 
   contents {
     from "docs"
-    from createZip
-    from jar
+//    from createZip
+//    from jar
     from (javadoc) {
       into "javadoc"
     }
@@ -185,10 +306,6 @@ subprojects {
     apply plugin: "jacoco"
     apply plugin: "pmd" 
     pmd.ignoreFailures=true
-}
-
-project (':cwblib') {
-    
     repositories {
         flatDir {
             dirs "${rootDir}libs"
@@ -198,6 +315,9 @@ project (':cwblib') {
             url "http://devel.uji.es/nexus/content/repositories/releases/"
         }
     }  
+}
+
+project (':cwblib') {     
     dependencies {
         compile group: 'org.jasypt', name: 'jasypt', version: '1.9.0'
         compile group: 'org.jdesktop', name: 'swing-layout', version: '1.0.3'
@@ -205,3 +325,134 @@ project (':cwblib') {
     }
 }
 
+project (':FilterPicker6') {    
+}
+
+project (':CWBPicker') {    
+    dependencies {
+        compile project(':cwblib')
+        compile project(':SubspacePreProcess')
+        compile project(':FilterPicker6')
+        compile project(':subspacedetector')
+    }
+}
+
+project (':subspacedetector') {    
+    dependencies {
+        compile project(':cwblib')
+        compile project(':SubspacePreProcess')
+        compile fileTree(include: ['*.jar'], dir: "${rootDir}/libs")   
+        compile group: 'log4j', name: 'log4j', version: '1.2.17'
+        compile group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+    }
+}
+
+project (':SubspacePreProcess') {    
+    dependencies {
+        compile project(':cwblib')
+        compile fileTree(include: ['*.jar'], dir: "${rootDir}/libs")  
+        compile group: 'gov.nist.math', name: 'jama', version: '1.0.3'
+    }
+}
+
+project (':rrpserver') {
+    
+}
+project (':USGSSeedlink') {     
+    dependencies {
+        compile project(':cwblib')
+        compile group: 'org.dom4j', name: 'dom4j', version: '2.1.1'
+    }
+}
+
+project (':rrpclient') {     
+    dependencies {
+        compile project(':cwblib')
+    }
+}
+
+project (':edgecwbjar') {     
+    dependencies {
+        compile project(':cwblib')
+        compile project(':USGSSeedlink')
+        compile project(':CWBPicker')
+        compile project(':rrpserver')
+        compile project(':rrpclient')
+        compile fileTree(include: ['*.jar'], dir: "${rootDir}/libs")
+        compile group: 'org.snmp4j', name: 'snmp4j', version: '1.7.1'
+    }
+    jar {
+        manifest {
+            attributes 'Main-Class': 'gov.usgs.anss.cwb.CWB'
+        }
+    }
+}
+
+project (':dbsetup') {
+    dependencies { 
+        compile project(':cwblib')   
+        compile "mysql:mysql-connector-java:5.1.47"
+        compile 'org.postgresql:postgresql:9.2-1002-jdbc4'
+        compile fileTree(include: ['*.jar'], dir: "${rootDir}/libs")
+    }
+    jar {
+        manifest {
+            attributes 'Main-Class' : 'gov.usgs.anss.db.DBSetup'
+        }        
+    }
+}
+
+project (':metadatagui') {
+    dependencies {
+        compile project(':cwblib')
+        compile project(':dbsetup')
+    }
+}
+
+project (':edgeconfig') {
+    dependencies {
+        compile project(':cwblib')
+        compile project(':CWBPicker')
+        compile project(':dbsetup')
+        compile project(':metadatagui')
+        compile project(':subspacedetector')
+        compile 'org.swinglabs:swingx:0.9'
+        compile "mysql:mysql-connector-java:5.1.47"
+        compile 'org.postgresql:postgresql:9.2-1002-jdbc4'
+    }
+}
+
+project (':msread') {
+    dependencies {
+        compile project(':cwblib')
+        compile project(':dbsetup')
+        compile "mysql:mysql-connector-java:5.1.47"
+    }
+}
+
+project (':cwbquery') {
+    dependencies {
+        compile project(':cwblib')
+    }
+}
+
+project (':fk') {  
+    dependencies {
+        compile project (':cwblib')
+        compile project (':CWBPicker')
+    }
+}
+
+//This javadoc task must be below all of subproject definitions or it
+//doesn't work!!!!!!
+task myJavadoc (type:Javadoc) {
+//    source = project(':cwblib').sourceSets.main.allJava
+    source = subprojects.collect { project ->
+        project.sourceSets.main.allJava
+    }
+//    destinationDir = new File(buildDir, 'javadoc')
+    classpath = files(subprojects.collect { project ->
+        project.sourceSets.main.compileClasspath
+    }) 
+}
+ 

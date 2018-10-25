@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<Form version="1.8" maxVersion="1.9" type="org.netbeans.modules.form.forminfo.JPanelFormInfo">
+  <NonVisualComponents>
+    <Component class="java.awt.GridBagLayout" name="gridBagLayout1">
+    </Component>
+  </NonVisualComponents>
+  <AuxValues>
+    <AuxValue name="FormSettings_autoResourcing" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_autoSetComponentName" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_generateFQN" type="java.lang.Boolean" value="true"/>
+    <AuxValue name="FormSettings_generateMnemonicsCode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_i18nAutoMode" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_listenerGenerationStyle" type="java.lang.Integer" value="0"/>
+    <AuxValue name="FormSettings_variablesLocal" type="java.lang.Boolean" value="false"/>
+    <AuxValue name="FormSettings_variablesModifier" type="java.lang.Integer" value="2"/>
+    <AuxValue name="designerSize" type="java.awt.Dimension" value="-84,-19,0,5,115,114,0,18,106,97,118,97,46,97,119,116,46,68,105,109,101,110,115,105,111,110,65,-114,-39,-41,-84,95,68,20,2,0,2,73,0,6,104,101,105,103,104,116,73,0,5,119,105,100,116,104,120,112,0,0,2,-83,0,0,3,86"/>
+  </AuxValues>
+
+  <Layout class="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout"/>
+  <SubComponents>
+    <Component class="javax.swing.JLabel" name="labMain">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Instance (nn#n):"/>
+        <Property name="toolTipText" type="java.lang.String" value="This button commits either a new item or the changes for an updating item.  Its label with change to reflect that."/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="13" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JComboBox" name="instance">
+      <Properties>
+        <Property name="editable" type="boolean" value="true"/>
+        <Property name="toolTipText" type="java.lang.String" value="Select an item to edit in the JComboBox or type in the name of an item.   If the typed name does not match an existing item, an new item is assumed."/>
+      </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instanceActionPerformed"/>
+      </Events>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="getJComboBox();"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="1" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="error">
+      <Properties>
+        <Property name="columns" type="int" value="40"/>
+        <Property name="editable" type="boolean" value="false"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[488, 22]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="0" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Container class="javax.swing.JPanel" name="bottomStuff">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 68]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 68]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="18" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JButton" name="addUpdate">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Add/Update"/>
+            <Property name="toolTipText" type="java.lang.String" value="Add a new Item or update and edited item."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="addUpdateActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_SerializeTo" type="java.lang.String" value="EdgeMomInstancePanel_addUpdate"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labChange">
+          <Properties>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monospaced" size="10" style="0"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="Change To:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="changeTo">
+          <Properties>
+            <Property name="columns" type="int" value="10"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monospaced" size="10" style="0"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="To change the name of this item, put the new name here.  "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="deleteItem">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Delete Item"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="deleteItemActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="reload">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Reload"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="reloadActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JLabel" name="idLab">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="ID :"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="ID">
+          <Properties>
+            <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+              <Color blue="cc" green="cc" red="cc" type="rgb"/>
+            </Property>
+            <Property name="columns" type="int" value="5"/>
+            <Property name="editable" type="boolean" value="false"/>
+            <Property name="toolTipText" type="java.lang.String" value="This is the ID of the displayed item in the underlying database.  Of much use to programmers, but not many others."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JButton" name="defEdgeProp">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Set default edge.prop"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;Click here to load a template of a common edge_$INSTANCE.prop file to edit for this specific instance.&#xa;&lt;/html&gt;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="defEdgePropActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="defCrontab">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Set Default crontab"/>
+            <Property name="toolTipText" type="java.lang.String" value="Click here to load a common crontab example to be edited for this instance."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="defCrontabActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JButton" name="setInstanceEdgemom">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Set Instance for role/acct"/>
+          </Properties>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Component class="javax.swing.JLabel" name="labDesc">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Description:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labAcct">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Account:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="13" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labArgs">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Arguments:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="13" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="description">
+      <Properties>
+        <Property name="columns" type="int" value="80"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;Enter some descriptive texts about this instance - mostly what data comes in, or what this instance does.&#xa;&lt;/html&gt;"/>
+        <Property name="focusTraversalKeysEnabled" type="boolean" value="false"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 28]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="3" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="account">
+      <Properties>
+        <Property name="columns" type="int" value="10"/>
+        <Property name="text" type="java.lang.String" value="vdl"/>
+        <Property name="toolTipText" type="java.lang.String" value="Set the account this EdgeMom is to run in.  Normally this  is &apos;vdl&apos;."/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[134, 28]"/>
+        </Property>
+      </Properties>
+      <Events>
+        <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="accountFocusLost"/>
+      </Events>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="5" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JTextField" name="args">
+      <Properties>
+        <Property name="columns" type="int" value="80"/>
+        <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;example : bash chkCWB edgemom N#I 100 [-test][-f filename][-dbg][-dbgblk][.....]&#xa;&lt;PRE&gt;&#xa;These switches are processed by the chkCWB script used to start processes in the crontab:&#xa;Switch        Description&#xa;-max         This process should use the java switches -XX:NewSize and -XX:MaxNewSize to cause more frequenc GC runs&#xa;-test          This switch tells the chkCWB to use the Jars files in ~vdl/Jars instead of ~vdl/bin to start this process.  Used for testing new code.&#xa;-nice          If present, then this thread is started with a nice to lower its processing priority&#xa;&#xa;These switches go to the EdgeMom thread.  Normally none of them are needed.  The -i will automatically be set by chkCWB script.&#xa;Tag   arg          Description&#xa;-f        filename file name of setup file def=edgemom.setup&#xa;-nosnw             Turnoff any output to the SNW server via SNWSender from any thread within this EdgeMom&#xa;-stalesec nn       Set the stale setting for closing files to this number of seconds (def=43200)&#xa;-logname  file     Set the log file name to something other thant &apos;edgemom&apos;&#xa;-i        nn#nn    Set the instance to this value, this overrides edge.prop property Node!&#xa;-ebq    nnnn       Set size of the EdgeBLock Queue default=&quot;+ebqsize);&#xa;-logname  name     Use name as the bases for log file (def=edgemom)&#xa;-stalesec nnnn     Number of seconds before a file is considered stale &#xa;-nozeroer          If present to no zero ahead, use this only on filesystems that return zero on unwritten blocks in a file&#xa;-zeroahead         The zeroer is to try to be this many megabytes ahead of the last data block in megabytes (def=1)&#xa;&#xa;Debugging related switches:&#xa;-dbgblk            Turn on logging for each data block written  &#xa; -dbgebq            Turn on logging for each data block to replication  &#xa;-dbgrtms           Turn on debugging in RawToMiniSeed&#xa;-dbgifr            Turn on debugging in IndexFileReplicator&#xa;-eqbsave filename  Turn on saving of EdgeBlockQueue to journal filename&#xa;-console           Set use console flag on - cause console output&#xa; -notimeout         Turn off thread time outs - good for useing debugger&#xa;-traceSteim        Turn on logging of Steim2.traceBackErrors()&#xa;-notimeout         Set the EdgeThreadTimeout to no timeout mode&#xa;&lt;/pre&gt;&#xa;&lt;/html&gt;"/>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 28]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="6" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="17" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labCron">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Instance Crontab:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="22" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Component class="javax.swing.JLabel" name="labProp">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Instance Properties:"/>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="0" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="22" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+    </Component>
+    <Container class="javax.swing.JScrollPane" name="jScrollcron">
+      <Properties>
+        <Property name="maximumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 120]"/>
+        </Property>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 120]"/>
+        </Property>
+        <Property name="preferredSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[550, 120]"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="7" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="crontab">
+          <Properties>
+            <Property name="columns" type="int" value="20"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monospaced" size="10" style="0"/>
+            </Property>
+            <Property name="rows" type="int" value="5"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;HTML&gt;&#xa;Start here any processed depending on this instance EdgeMom.  The $INSTANCE variable can be used here to &#xa;pickup the instance tag.&#xa;&lt;br&gt;&#xa;# Start an RRPClient created by this EdgeMom instance&#xa;&lt;br&gt;&#xa;* * * * * bash scripts/chkCWB rrpclient $INSTANCE 30 -ring /data2/Sendto_$INSTANCE -tag DEV -log rrpdev -ext dev -ip 1.2.3.4 -p 20002 &gt;&gt;LOG/chkcwb.log 2&gt;&amp;1&#xa;&lt;br&gt;&#xa;# Start a RRPServer to get data for insertion in this edgemom instance, create a RRP2Edge for each ring&#xa;&lt;br&gt;* * * * * scripts/chkCWB rrpserver $INSTANCE 20 -config config/rrpserver.setup -s 500 -p 2006 &gt;&gt;LOG/chkcwb.log 2&gt;&amp;1&#xa;&#xa;&lt;PRE&gt;&#xa;Note : the chkCWB and chkNEIC scripts can be invoked starting with these tags and omitting the output log. &#xa;The crontab will add to be run every minute and the log will go to &apos;&gt;&gt;LOG/chkcwb.log 2&gt;&amp;1&apos;.&#xa;&#xa;Symbols that can be present and substituted :&#xa;$INSTANCE  replaced with the instance setting.  Useful in ring file names.&#xa;$ROLE replaced with the role name or primary role name&#xa;$SERVER replaced with the physical node/cpu system name.&#xa;&lt;/PRE&gt;&#xa;&lt;/html&gt;&#xa;"/>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="crontabFocusLost"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JScrollPane" name="jScrollProp">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[360, 160]"/>
+        </Property>
+      </Properties>
+      <AuxValues>
+        <AuxValue name="autoScrollPane" type="java.lang.Boolean" value="true"/>
+      </AuxValues>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="8" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="21" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JTextArea" name="edgeprop">
+          <Properties>
+            <Property name="columns" type="int" value="30"/>
+            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+              <Font name="Monospaced" size="10" style="0"/>
+            </Property>
+            <Property name="rows" type="int" value="10"/>
+            <Property name="text" type="java.lang.String" value="daysize=300001&#xa;extendsize=20000&#xa;ebqsize=250000&#xa;KillPages=false&#xa;emailFrom=$ACCOUNT-$INSTANCE@usgs.gov&#xa;"/>
+            <Property name="toolTipText" type="java.lang.String" value="&lt;html&gt;&#xa;This contains the text for the edge_$INSTANCE.prop file.  &#xa;&lt;br&gt;This can override any properties from the edge_$SERVER.prop file and add all of the addtional ones needed by this instance.  &#xa;&lt;br&gt;The Node and storage related properties (datapath, ndatapath, nday) normally would not be here as that is a property of the server.  &#xa;&lt;br&gt;Here is a list of properties :&#xa;&lt;PRE&gt;&#xa;daysize=300001&#xa;extendsize=20000&#xa;ebqsize=20000&#xa;KillPages=false&#xa;# Override server config database location&#xa;DBServer=1.2.3.4/3306\u005c:edge\u005c:mysql\u005c:edge&#xa;&#xa;Symbols that can be present and substituted :&#xa;$INSTANCE  replaced with the instance setting.  Useful in ring file names.&#xa;$ROLE replaced with the role name or primary role name&#xa;$SERVER replaced with the physical node/cpu system name.&#xa;&lt;/PRE&gt;&#xa;&lt;/html&gt;" containsInvalidXMLChars="true"/>
+            <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+              <Dimension value="[360, 160]"/>
+            </Property>
+          </Properties>
+          <Events>
+            <EventHandler event="focusLost" listener="java.awt.event.FocusListener" parameters="java.awt.event.FocusEvent" handler="edgepropFocusLost"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+    <Container class="javax.swing.JPanel" name="topPanel">
+      <Properties>
+        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
+          <Dimension value="[600, 80]"/>
+        </Property>
+      </Properties>
+      <Constraints>
+        <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout" value="org.netbeans.modules.form.compat2.layouts.DesignGridBagLayout$GridBagConstraintsDescription">
+          <GridBagConstraints gridX="1" gridY="2" gridWidth="1" gridHeight="1" fill="0" ipadX="0" ipadY="0" insetsTop="0" insetsLeft="0" insetsBottom="0" insetsRight="0" anchor="10" weightX="0.0" weightY="0.0"/>
+        </Constraint>
+      </Constraints>
+
+      <Layout class="org.netbeans.modules.form.compat2.layouts.DesignFlowLayout"/>
+      <SubComponents>
+        <Component class="javax.swing.JLabel" name="labHeap">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Heap(mB):"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JTextField" name="heap">
+          <Properties>
+            <Property name="columns" type="int" value="5"/>
+            <Property name="toolTipText" type="java.lang.String" value="Heap space to assign to this instance of EdgeMom in megabytes (mB)."/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labRole">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Normal Role: "/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="role">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Select the role on which this instance is normally run.  The instance node number should agree with the cpu node number assign this role."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="roleActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="gov.usgs.edge.config.RoleInstancePanel.getJComboBox();"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="labFailRole">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Failover Role:"/>
+          </Properties>
+        </Component>
+        <Component class="javax.swing.JComboBox" name="failoverRole">
+          <Properties>
+            <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
+              <StringArray count="0"/>
+            </Property>
+            <Property name="toolTipText" type="java.lang.String" value="Select the Role that would normally be the role assigned on a failover of the normal role."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="failoverRoleActionPerformed"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="gov.usgs.edge.config.RoleInstancePanel.getJComboBox()"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="failedOver">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Fail Over this Instance"/>
+            <Property name="toolTipText" type="java.lang.String" value="If selected, the instance is run on its failover role and removed from its normal role."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="failedOverActionPerformed"/>
+          </Events>
+        </Component>
+        <Component class="javax.swing.JRadioButton" name="disabled">
+          <Properties>
+            <Property name="text" type="java.lang.String" value="Disabled"/>
+            <Property name="toolTipText" type="java.lang.String" value="If selected, this instance is not run on any role."/>
+          </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="disabledActionPerformed"/>
+          </Events>
+        </Component>
+      </SubComponents>
+    </Container>
+  </SubComponents>
+</Form>

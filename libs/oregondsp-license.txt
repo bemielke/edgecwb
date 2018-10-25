@@ -1,0 +1,11 @@
+OregonDSP:  A Basic Collection of FIR and
+		IIR Digital Filters 
+		Author:  David B. Harris 
+		Deschutes Signal Processing LLC 
+
+  OregonDSP is a collection of 44 Java classes that design and 
+implement finite impulse response (FIR) and infinite impulse response 
+(IIR) digital filters.  Supporting classes implement complex and real 
+fast Fourier transforms (FFTs) and the overlap-add algorithm for 
+filtering a continuous stream in a series of consecutive, contiguous 
+blocks with an FIR filter. 
